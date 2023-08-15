@@ -1,0 +1,34 @@
+<div class="container">
+    <h1 class="text-center">By Sof - Products</h1>
+    
+        <h3 class="welcome">Bienvenido/a {{user.firstName}}</h3>
+
+    <a href="/auth/logout" class="btn btn-outline-danger mb-4">Logout</a>
+
+    <div class="productsContainer">
+        {{#each products}}
+            <div class="mb-3 w-50">
+                <div class="card">
+                <h5 class="card-header text-center"> {{this.title}} </h5>
+                <img class="card-image" src="#" alt="{{this.title}}">
+                <div class="card-body text-center"> 
+                    <em class="card-title"> {{this.description}} </em>
+                    <p class="card-text text-center"> <b> ${{this.price}} </b>  </p>
+                    <small class="d-block">id: {{this._id}} </small>
+                    {{!-- <button class="btn btn-outline-success mt-2" id="btnAdd{{this._id}}">Add to cart</button> --}}
+                    </div>
+                </div>
+            </div>
+        {{/each}}    
+
+        {{#if pagination.hasPrevPage}}
+            <a class="btn btn-outline-info m-2" style='font-size: 20;' href='/home/?page={{pagination.prevPage}}'>⬅{{pagination.prevPage}}</a>
+        {{/if}}
+            <a class="btn btn-outline-info m-2" style='font-size: 20;' href='#'>{{pagination.page}}</a>
+        {{#if pagination.hasNextPage}}
+            <a class="btn btn-outline-info m-2"style='font-size: 20;' href='/home/?page={{pagination.nextPage}}'>{{pagination.nextPage}}➡</a>
+        {{/if}}
+            <br/>
+            <br/>
+    </div>
+</div>
